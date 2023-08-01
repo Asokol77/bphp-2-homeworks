@@ -77,6 +77,7 @@ do {
     switch ($operationNumber) {
         case OPERATION_ADD:
             $items = addItems($items);
+            break;
         case OPERATION_DELETE:
             $items = delItems($items);
             break;

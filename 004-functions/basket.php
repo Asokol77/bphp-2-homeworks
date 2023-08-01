@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 const OPERATION_EXIT = 0;
 const OPERATION_ADD = 1;
 const OPERATION_DELETE = 2;
@@ -13,21 +13,27 @@ $operations = [
 ];
 
 $items = [];
+function interf(){
+
+    return $operationNumber;
+}
+
+function cart(array $items){
+    if (count($items)) {
+        echo 'Ваш список покупок: ' . PHP_EOL;
+        echo implode("\n", $items) . "\n";
+    } else {
+        echo 'Ваш список покупок пуст.' . PHP_EOL;
+    }
+}
+
 
 
 do {
     system('clear');
 //    system('cls'); // windows
-
+    cart($items);
     do {
-        if (count($items)) {
-            echo 'Ваш список покупок: ' . PHP_EOL;
-            echo implode("\n", $items) . "\n";
-        } else {
-            echo 'Ваш список покупок пуст.' . PHP_EOL;
-        }
-
-
         echo 'Выберите операцию для выполнения: ' . PHP_EOL;
         // Проверить, есть ли товары в списке? Если нет, то не отображать пункт про удаление товаров
         echo implode(PHP_EOL, $operations) . PHP_EOL . '> ';

@@ -1,29 +1,20 @@
 #!/usr/bin/php
 <?php
 
-// fscanf(STDIN, "%d/n", $number1);
-// fscanf(STDIN, "%d/n", $number2);
+fscanf(STDIN, "%s", $number1);
+fscanf(STDIN, "%s", $number2);
 
-// if ($number2 === 0){
-// fwrite(STDERR, "На ноль дельить нельзя!" . PHP_EOL);
-// }
-// else {
-// fwrite(STDOUT, $number1 / $number2);
-// }
 
-fscanf(STDIN, $number1);
-fscanf(STDIN, $number2);
-fwrite(STDOUT, $number1 . PHP_EOL . $number2);
-
-if (is_numeric($number1)) {
-    fwrite(STDERR, "Введите, пожалуйста, число" . PHP_EOL);
-}
-else {
-    if ($number2 === 0){
-        fwrite(STDERR, "На ноль дельить нельзя!" . PHP_EOL);
+if ((is_numeric($number1)) && (is_numeric($number2)))  {
+    fwrite(STDERR, "Это число" . PHP_EOL);
+    settype($number2, "integer");
+    if ($number2 === 0) {
+        fwrite(STDERR, " На 0  делить нельзя" . PHP_EOL);
     }
     else {
         fwrite(STDOUT, $number1 / $number2);
     }
-
+}
+else {
+    fwrite(STDERR, "Это не число" . PHP_EOL);
 }
